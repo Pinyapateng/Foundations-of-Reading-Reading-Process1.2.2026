@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations of Reading & Reading Process - อ30222</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Sarabun & Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#172554'
+                        },
+                        accent: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Sarabun', 'Prompt', 'sans-serif'],
+                        heading: ['Prompt', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Prompt', sans-serif;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .shadow-lg, .shadow-md, .shadow-sm, .shadow-2xl {
+                box-shadow: none !important;
+            }
+            .border {
+                border-color: #cbd5e1 !important;
+            }
+            .tab-content {
+                display: block !important;
+            }
+        }
+        .print-only {
+            display: none;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col justify-between selection:bg-blue-200 selection:text-blue-900">
+
+    <!-- TOP HEADER / SCHOOL BANNER -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 text-white shadow-lg sticky top-0 z-40 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+                <!-- School & Course Details -->
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-2.5 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <i class="fa-solid fa-graduation-cap text-3xl text-amber-300"></i>
+                    </div>
+                    <div>
+                        <span class="inline-block bg-blue-700/60 text-blue-100 text-xs px-2.5 py-0.5 rounded-full border border-blue-400/30 font-medium">
+                            รายวิชาการอ่านภาษาอังกฤษเชิงวิจารณ์ (อ30222)
+                        </span>
+                        <h1 class="text-xl sm:text-2xl font-bold font-heading tracking-tight text-white leading-snug">
+                            Foundations of Reading & Reading Process
+                        </h1>
+                        <p class="text-xs sm:text-sm text-blue-200 flex items-center gap-2">
+                            <span><i class="fa-solid fa-school text-amber-300"></i> โรงเรียนเตรียมอุดมศึกษาน้อมเกล้านครราชสีมา</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Instructor Badge -->
+                <div class="flex items-center bg-white/10 px-4 py-2 rounded-xl border border-white/15 backdrop-blur-md text-right text-xs sm:text-sm">
+                    <div class="mr-3 hidden sm:block">
+                        <p class="font-medium text-amber-200">ครูผู้สอน</p>
+                        <p class="font-semibold text-white">นางสาวภิญญาพัชญ์ คบด่านกลาง</p>
+                        <p class="text-xs text-blue-200">ตำแหน่งครู วิทยฐานะชำนาญการพิเศษ</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-amber-400 text-blue-950 font-bold flex items-center justify-center text-lg border-2 border-amber-200 shadow">
+                        ภ
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN NAVIGATION TABS -->
+            <nav class="mt-4 border-t border-white/10 pt-2 overflow-x-auto scrollbar-none flex space-x-1 sm:space-x-2 text-sm font-medium">
+                <button onclick="switchTab('tab-lesson')" id="nav-tab-lesson" class="nav-btn px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2 whitespace-nowrap bg-white/20 text-white shadow-sm font-semibold">
+                    <i class="fa-solid fa-book-open"></i> 1. บทเรียนและทฤษฎี
+                </button>
+                <button onclick="switchTab('tab-vocab')" id="nav-tab-vocab" class="nav-btn px-4 py-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-spell-check"></i> 2. คำศัพท์น่ารู้ (Audio)
+                </button>
+                <button onclick="switchTab('tab-exercise')" id="nav-tab-exercise" class="nav-btn px-4 py-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-pen-ruler"></i> 3. แบบฝึกหัด (20 ข้อ)
+                </button>
+                <button onclick="switchTab('tab-posttest')" id="nav-tab-posttest" class="nav-btn px-4 py-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-clipboard-question"></i> 4. แบบทดสอบหลังเรียน (20 ข้อ)
+                </button>
+                <button onclick="switchTab('tab-summary')" id="nav-tab-summary" class="nav-btn px-4 py-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-award"></i> 5. สรุปผลคะแนน
+                </button>
+                <button onclick="openTeacherAuthModal()" id="nav-tab-teacher" class="nav-btn px-4 py-2 rounded-lg hover:bg-white/10 text-amber-300 hover:text-amber-200 transition-all duration-200 flex items-center gap-2 whitespace-nowrap border border-amber-400/30">
+                    <i class="fa-solid fa-user-tie"></i> มุมครูผู้สอน (เฉลย)
+                </button>
+                <button onclick="switchTab('tab-print')" id="nav-tab-print" class="nav-btn px-4 py-2 rounded-lg hover:bg-white/10 text-blue-100 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-print"></i> ศูนย์สั่งพิมพ์
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PRINT HEADER (Only visible when printing) -->
+    <div class="print-only p-6 border-b-2 border-slate-800 mb-6">
+        <div class="text-center">
+            <h1 class="text-2xl font-bold">โรงเรียนเตรียมอุดมศึกษาน้อมเกล้านครราชสีมา</h1>
+            <h2 class="text-xl font-semibold mt-1">เอกสารประกอบการเรียน รายวิชาการอ่านภาษาอังกฤษเชิงวิจารณ์ (อ30222)</h2>
+            <p class="text-sm text-slate-700 mt-1">เรื่อง: Foundations of Reading & Reading Process | ครูผู้สอน: นางสาวภิญญาพัชญ์ คบด่านกลาง</p>
+        </div>
+        <div class="flex justify-between items-center mt-6 text-sm border-t pt-3 border-dashed border-slate-400">
+            <div>ชื่อ-นามสกุล: ..........................................................................</div>
+            <div>ชั้น ม.4/............</div>
+            <div>เลขที่: .........</div>
+            <div>วันที่: ....................</div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- TAB 1: LESSON CONTENT -->
+        <section id="tab-lesson" class="tab-content block space-y-8">
+            <!-- Hero Unit -->
+            <div class="bg-gradient-to-br from-indigo-600 via-blue-600 to-sky-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-white pointer-events-none">
+                    <i class="fa-solid fa-book-open-reader text-[240px]"></i>
+                </div>
+                <div class="relative z-10 max-w-3xl">
+                    <span class="bg-amber-400 text-slate-900 font-bold text-xs uppercase px-3 py-1 rounded-full shadow-sm">
+                        Lesson Overview
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-bold font-heading mt-3 mb-4 leading-snug">
+                        พื้นฐานและทฤษฎีการอ่าน (Foundations of Reading) & กระบวนการอ่าน (Reading Process)
+                    </h2>
+                    <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+                        การอ่านภาษาอังกฤษเชิงวิจารณ์ไม่ใช่เพียงแค่การอ่านออกและแปลคำศัพท์ได้ แต่เป็น **กระบวนการสร้างความหมาย (Meaning Construction Process)** ระหว่างผู้อ่านและบทอ่าน ผ่านการดึงความรู้เดิม (Schema) และทักษะการวิเคราะห์ข้อมูลอย่างมีระบบ
+                    </p>
+                </div>
+            </div>
+
+            <!-- Content Outline Navigator -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 no-print">
+                <a href="#section-1" class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition hover:border-blue-500 flex items-start space-x-3">
+                    <div class="bg-blue-100 text-blue-700 p-3 rounded-xl font-bold">01</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Schema Theory</h4>
+                        <p class="text-xs text-slate-500 mt-1">ความรู้เดิมกับการเข้าใจความหมายบทอ่าน</p>
+                    </div>
+                </a>
+                <a href="#section-2" class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition hover:border-blue-500 flex items-start space-x-3">
+                    <div class="bg-indigo-100 text-indigo-700 p-3 rounded-xl font-bold">02</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Reading Models</h4>
+                        <p class="text-xs text-slate-500 mt-1">Bottom-Up, Top-Down, Interactive</p>
+                    </div>
+                </a>
+                <a href="#section-3" class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition hover:border-blue-500 flex items-start space-x-3">
+                    <div class="bg-emerald-100 text-emerald-700 p-3 rounded-xl font-bold">03</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">5-Stage Reading Process</h4>
+                        <p class="text-xs text-slate-500 mt-1">Pre, During, Post Reading Strategies</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- MODULE 1: SCHEMA THEORY -->
+            <div id="section-1" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white font-bold flex items-center justify-center text-lg">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 font-heading">ทฤษฎีเค้าโครงความรู้เดิม (Schema Theory)</h3>
+                        <p class="text-xs text-slate-500">The Role of Prior Knowledge in Reading Comprehension</p>
+                    </div>
+                </div>
+
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    <strong>Schema (พหุพจน์: Schemata)</strong> คือ โครงสร้างความรู้ ประสบการณ์ และมโนทัศน์ที่ถูกจัดเก็บไว้ในสมองมนุษย์อย่างเป็นระบบ เมื่ออ่านบทความใหม่ สมองจะทำการเรียกคืน (Retrieve) Schema ที่เกี่ยวข้องขึ้นมาเปรียบเทียบและสังเคราะห์ เพื่อสร้างความเข้าใจในระดับลึก
+                </p>
+
+                <!-- Detailed Types of Schemata with Examples suitable for Grade 10 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-4">
+                    <!-- Linguistic Schema -->
+                    <div class="bg-blue-50/80 p-5 rounded-2xl border border-blue-200 flex flex-col justify-between">
+                        <div>
+                            <div class="text-blue-900 font-bold text-base mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-font text-blue-600"></i> 1. Linguistic Schema
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                ความรู้ด้านภาษาศาสตร์ ไวยากรณ์ คลังคำศัพท์ และคำเชื่อมประโยค (Cohesive Devices)
+                            </p>
+                            <div class="mt-3 bg-white p-3 rounded-xl border border-blue-100 text-xs">
+                                <span class="font-bold text-blue-800 block mb-1">English Example (ตัวอย่างภาษาอังกฤษ):</span>
+                                <p id="schema-ex-ling" class="italic font-mono text-slate-700">"Despite the heavy rain, the football team continued their practice."</p>
+                                <p class="text-[11px] text-slate-500 mt-1.5">
+                                    *ผู้มี Linguistic Schema จะเข้าใจทันทีว่า "Despite" บอกความขัดแย้งกับประโยคหลัก*
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="speakTextById('schema-ex-ling')" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-volume-high"></i> ฟังเสียงตัวอย่าง (Listen)
+                        </button>
+                    </div>
+
+                    <!-- Content Schema -->
+                    <div class="bg-indigo-50/80 p-5 rounded-2xl border border-indigo-200 flex flex-col justify-between">
+                        <div>
+                            <div class="text-indigo-900 font-bold text-base mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-globe text-indigo-600"></i> 2. Content Schema
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                ความรู้เดิมด้านเนื้อหา สังคม วัฒนธรรม ปรากฏการณ์ธรรมชาติ หรือหัวข้อที่อ่าน
+                            </p>
+                            <div class="mt-3 bg-white p-3 rounded-xl border border-indigo-100 text-xs">
+                                <span class="font-bold text-indigo-800 block mb-1">English Example (ตัวอย่างภาษาอังกฤษ):</span>
+                                <p id="schema-ex-cont" class="italic font-mono text-slate-700">"During Loy Krathong festival, people float lotus-shaped baskets onto rivers to express gratitude."</p>
+                                <p class="text-[11px] text-slate-500 mt-1.5">
+                                    *นักเรียนไทยมี Content Schema เรื่องวันลอยกระทง จะเข้าใจความหมายบทความนี้ได้ทันที*
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="speakTextById('schema-ex-cont')" class="mt-3 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-volume-high"></i> ฟังเสียงตัวอย่าง (Listen)
+                        </button>
+                    </div>
+
+                    <!-- Formal Schema -->
+                    <div class="bg-purple-50/80 p-5 rounded-2xl border border-purple-200 flex flex-col justify-between">
+                        <div>
+                            <div class="text-purple-900 font-bold text-base mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-newspaper text-purple-600"></i> 3. Formal / Textual Schema
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                ความรู้เรื่องโครงสร้างรูปแบบงานเขียน (Genre Structure) เช่น ข่าว นิทาน หรืออีเมล
+                            </p>
+                            <div class="mt-3 bg-white p-3 rounded-xl border border-purple-100 text-xs">
+                                <span class="font-bold text-purple-800 block mb-1">English Example (ตัวอย่างภาษาอังกฤษ):</span>
+                                <p id="schema-ex-form" class="italic font-mono text-slate-700">"Subject: Request for Leave of Absence. Dear Mr. Smith, I am writing to inform you..."</p>
+                                <p class="text-[11px] text-slate-500 mt-1.5">
+                                    *การเห็น Subject และขึ้นต้น Dear... ทำให้นักเรียนระบุได้ทันทีว่านี่คือ Formal Email*
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="speakTextById('schema-ex-form')" class="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-volume-high"></i> ฟังเสียงตัวอย่าง (Listen)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Q&A Accordion with ENGLISH QUESTIONS -->
+                <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-inner space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                        <span class="text-xs font-bold uppercase text-amber-400 tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-base"></i> Interactive Checkpoint: Questions on Schema Theory
+                        </span>
+                        <span class="text-[11px] text-slate-400">Click to reveal answer</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Q1 English -->
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-schema-1')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q1: How does Linguistic Schema help a reader understand the sentence "Although it rained, we played soccer"?</span>
+                                <i id="qa-schema-1-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-schema-1" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> Linguistic Schema provides knowledge of transition words like <code class="bg-slate-800 px-1 rounded text-amber-200">Although</code>. It helps the reader recognize contrast between bad weather and playing sports without needing to re-read the sentence multiple times.
+                            </div>
+                        </div>
+
+                        <!-- Q2 English -->
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-schema-2')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q2: When a student uses existing knowledge of science to understand a passage about "photosynthesis", which schema is activated?</span>
+                                <i id="qa-schema-2-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-schema-2" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> This activates **Content Schema**, because it involves background topic knowledge about plant biology and natural processes rather than sentence structures.
+                            </div>
+                        </div>
+
+                        <!-- Q3 English -->
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-schema-3')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q3: If a reader recognizes that a passage beginning with "Once upon a time" is a fairy tale, which schema is used?</span>
+                                <i id="qa-schema-3-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-schema-3" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> This is **Formal / Textual Schema**. The opening phrase signals the specific genre structure and conventional style of traditional storybooks.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 2: READING MODELS -->
+            <div id="section-2" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white font-bold flex items-center justify-center text-lg">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 font-heading">โมเดลและทฤษฎีกระบวนการอ่าน (Reading Models)</h3>
+                        <p class="text-xs text-slate-500">Three Major Models of Reading Process with Accessible M.4 Level Passages</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Bottom Up -->
+                    <div class="border border-slate-200 rounded-2xl p-5 hover:border-indigo-500 transition bg-slate-50/50 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-3 font-bold">
+                                <i class="fa-solid fa-arrow-up text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base mb-1">1. Bottom-Up Model</h4>
+                            <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md">Data-Driven Process</span>
+                            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                การอ่านจากส่วนย่อยไปหาส่วนใหญ่: สะกดตัวอักษร ➔ รวมคำ ➔ โครงสร้างประโยค ➔ ความหมาย
+                            </p>
+                            <div class="mt-3 bg-white p-3 rounded-xl border border-slate-200 text-xs">
+                                <strong class="text-blue-800 block mb-1">English Passage Example (ม.4 Level):</strong>
+                                <p id="model-ex-bu" class="italic font-mono text-slate-700">"Eating balanced meals gives students the energy they need for daily studying."</p>
+                                <p class="text-[11px] text-slate-500 mt-1">
+                                    *ผู้อ่านถอดรหัสคำศัพท์ย่อย: balanced (สมดุล) + energy (พลังงาน) + studying (การเรียน) แล้วนำมารวมเป็นใจความ*
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="speakTextById('model-ex-bu')" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-volume-high"></i> ฟังเสียงตัวอย่าง (Listen)
+                        </button>
+                    </div>
+
+                    <!-- Top Down -->
+                    <div class="border border-slate-200 rounded-2xl p-5 hover:border-indigo-500 transition bg-slate-50/50 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-3 font-bold">
+                                <i class="fa-solid fa-arrow-down text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base mb-1">2. Top-Down Model</h4>
+                            <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">Concept-Driven Process</span>
+                            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                การอ่านจากภาพรวมลงมาส่วนย่อย โดยใช้ **Schema และบริบท** ช่วยคาดเดาความหมายล่วงหน้า
+                            </p>
+                            <div class="mt-3 bg-white p-3 rounded-xl border border-slate-200 text-xs">
+                                <strong class="text-indigo-800 block mb-1">English Passage Example (ม.4 Level):</strong>
+                                <p id="model-ex-td" class="italic font-mono text-slate-700">"Trees absorb carbon dioxide and release fresh oxygen, which helps reduce global warming."</p>
+                                <p class="text-[11px] text-slate-500 mt-1">
+                                    *เห็นคำว่า Trees + Oxygen ผู้อ่านดึง Schema เรื่องสิ่งแวดล้อม และคาดเดาคำว่า reduce global warming ได้ทันที*
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="speakTextById('model-ex-td')" class="mt-3 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-volume-high"></i> ฟังเสียงตัวอย่าง (Listen)
+                        </button>
+                    </div>
+
+                    <!-- Interactive Model -->
+                    <div class="border border-indigo-200 rounded-2xl p-5 hover:border-indigo-500 transition bg-indigo-50/40 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center mb-3 font-bold">
+                                <i class="fa-solid fa-arrows-up-down text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-base mb-1">3. Interactive Model</h4>
+                            <span class="text-xs font-semibold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-md">Balanced Process</span>
+                            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                การผสมผสาน **Bottom-Up + Top-Down** อย่างสลับสับเปลี่ยนเพื่อความแม่นยำและรวดเร็ว
+                            </p>
+                            <div class="mt-3 bg-white p-3 rounded-xl border border-purple-100 text-xs">
+                                <strong class="text-purple-800 block mb-1">English Passage Example (ม.4 Level):</strong>
+                                <p id="model-ex-inter" class="italic font-mono text-slate-700">"Smartphones allow instant communication, but frequent notification alerts can distract students from studying."</p>
+                                <p class="text-[11px] text-slate-500 mt-1">
+                                    *ผู้อ่านใช้ Top-Down รู้บริบทการใช้มือถือ พร้อมใช้ Bottom-Up ถอดรหัสคำศัพท์ เช่น distract (ทำให้เสียสมาธิ)*
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="speakTextById('model-ex-inter')" class="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-volume-high"></i> ฟังเสียงตัวอย่าง (Listen)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Q&A for Reading Models (ENGLISH QUESTIONS) -->
+                <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-inner space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                        <span class="text-xs font-bold uppercase text-amber-400 tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-base"></i> Interactive Checkpoint: Questions on Reading Models
+                        </span>
+                        <span class="text-[11px] text-slate-400">Click to reveal answer</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-model-1')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q1: What is the main limitation of relying solely on the Bottom-Up reading model?</span>
+                                <i id="qa-model-1-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-model-1" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> Relying only on Bottom-Up reading makes the process very slow (word-by-word decoding). It causes **cognitive overload**, making it difficult for students to comprehend the overall main idea of the passage.
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-model-2')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q2: Why is the Interactive Model considered the most effective for high school (ม.4) students?</span>
+                                <i id="qa-model-2-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-model-2" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> Because it allows readers to quickly predict meaning using context and background knowledge (Top-Down), while instantly utilizing decoding skills (Bottom-Up) when encountering unfamiliar academic words.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODULE 3: 5-STAGE READING PROCESS & STEP-BY-STEP PASSAGE DEMO -->
+            <div id="section-3" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-100 pb-4">
+                    <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white font-bold flex items-center justify-center text-lg">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 font-heading">กระบวนการอ่าน 5 ขั้นตอน (5-Stage Reading Process) ผ่านตัวอย่างบทอ่าน</h3>
+                        <p class="text-xs text-slate-500">Step-by-Step Practical Reading Demonstration with English Passage Excerpts</p>
+                    </div>
+                </div>
+
+                <!-- SAMPLE PASSAGE CARD (M.4 Level: Teen Sleep & Social Media) -->
+                <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-lg border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <div>
+                            <span class="bg-amber-400 text-slate-950 text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase">M.4 Demonstration Passage</span>
+                            <h4 class="text-lg font-bold font-heading text-amber-200 mt-1">The Impact of Social Media on Teen Sleep Habits</h4>
+                        </div>
+                        <button onclick="speakTextById('demonstration-passage')" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-3 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-volume-high"></i> ฟังบทอ่านทั้งบท (Listen All)
+                        </button>
+                    </div>
+                    <p id="demonstration-passage" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60">
+                        "In recent years, smart devices have become an essential part of daily life for high school students. According to a 2025 health survey, over 70% of teenagers check their smartphones in bed right before falling asleep. Health experts point out that the blue light emitted from phone screens delays the production of melatonin, a hormone that regulates sleep cycles. Consequently, many students experience severe sleep deprivation, leading to poor concentration during morning classes. Doctors strongly advise students to establish a 'digital curfew' by turning off electronic screens at least one hour before bedtime."
+                    </p>
+                </div>
+
+                <!-- DETAILED 5-STAGE WALKTHROUGH WITH ENGLISH EXCERPTS AT THE END OF EACH STAGE -->
+                <div class="space-y-5">
+                    <h4 class="font-bold text-slate-800 text-base font-heading flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-emerald-600"></i> สาธิตการปฏิบัติจริงในแต่ละขั้นตอนของ 5-Stage Reading Process:
+                    </h4>
+
+                    <!-- STAGE 1 -->
+                    <div class="bg-blue-50/60 border border-blue-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="font-bold text-blue-900 text-sm flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">1</span>
+                                Stage 1: Pre-Reading (ขั้นก่อนการอ่าน)
+                            </h5>
+                            <span class="text-xs font-semibold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-md">Activation & Prediction</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>สิ่งที่นักเรียนปฏิบัติตามทฤษฎี:</strong> อ่านหัวข้อเรื่อง ดูคำศัพท์หลัก และกระตุ้นความรู้เดิมเกี่ยวกับพฤติกรรมการนอนและการใช้โซเชียลมีเดีย
+                        </p>
+                        
+                        <div class="bg-white p-3.5 rounded-xl border border-blue-200 text-xs text-slate-700 space-y-2">
+                            <div class="flex items-center justify-between font-bold text-blue-900 border-b border-blue-50 pb-1">
+                                <span>📌 English Example from Text (ขั้น Pre-Reading):</span>
+                                <button onclick="speakTextById('ex-stage1-text')" class="text-blue-600 hover:text-blue-800 text-xs"><i class="fa-solid fa-volume-high"></i></button>
+                            </div>
+                            <p id="ex-stage1-text" class="italic font-mono text-slate-800 bg-blue-50/50 p-2 rounded-lg">
+                                Title: "The Impact of Social Media on Teen Sleep Habits"
+                            </p>
+                            <p class="text-[11px] text-slate-600">
+                                <strong>Pre-Reading Question in English:</strong> <em>"How many hours do you spend on your smartphone before sleeping every night?"</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 2 -->
+                    <div class="bg-indigo-50/60 border border-indigo-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="font-bold text-indigo-900 text-sm flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center">2</span>
+                                Stage 2: During Reading (ขั้นขณะทำการอ่าน)
+                            </h5>
+                            <span class="text-xs font-semibold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md">Skimming & Scanning</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>สิ่งที่นักเรียนปฏิบัติตามทฤษฎี:</strong> อ่านกวาดสายหา Main Idea (Skimming) และค้นหาข้อมูลเฉพาะ (Scanning) เช่น ตัวเลข หรือสถิติ
+                        </p>
+                        
+                        <div class="bg-white p-3.5 rounded-xl border border-indigo-200 text-xs text-slate-700 space-y-2">
+                            <div class="flex items-center justify-between font-bold text-indigo-900 border-b border-indigo-50 pb-1">
+                                <span>📌 English Examples from Text (ขั้น During Reading):</span>
+                                <button onclick="speakTextById('ex-stage2-text')" class="text-indigo-600 hover:text-indigo-800 text-xs"><i class="fa-solid fa-volume-high"></i></button>
+                            </div>
+                            <div id="ex-stage2-text" class="space-y-1.5 font-mono text-slate-800">
+                                <p class="bg-indigo-50/50 p-2 rounded-lg">
+                                    <strong class="text-indigo-800">1. Skimming (Main Idea):</strong> "Using smart devices before bed disrupts teenagers' natural sleep cycles."
+                                </p>
+                                <p class="bg-indigo-50/50 p-2 rounded-lg">
+                                    <strong class="text-indigo-800">2. Scanning (Specific Detail):</strong> "Over 70% of teenagers check their smartphones in bed..."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 3 -->
+                    <div class="bg-purple-50/60 border border-purple-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="font-bold text-purple-900 text-sm flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-full bg-purple-600 text-white text-xs font-bold flex items-center justify-center">3</span>
+                                Stage 3: Responding (ขั้นการตอบสนองต่อบทอ่าน)
+                            </h5>
+                            <span class="text-xs font-semibold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-md">Personal Reflection</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>สิ่งที่นักเรียนปฏิบัติตามทฤษฎี:</strong> สะท้อนความรู้สึก อภิปรายกับเพื่อน หรือแสดงความคิดเห็นภาษาอังกฤษต่อสิ่งที่อ่าน
+                        </p>
+                        
+                        <div class="bg-white p-3.5 rounded-xl border border-purple-200 text-xs text-slate-700 space-y-2">
+                            <div class="flex items-center justify-between font-bold text-purple-900 border-b border-purple-50 pb-1">
+                                <span>📌 English Student Reflection Example (ขั้น Responding):</span>
+                                <button onclick="speakTextById('ex-stage3-text')" class="text-purple-600 hover:text-purple-800 text-xs"><i class="fa-solid fa-volume-high"></i></button>
+                            </div>
+                            <p id="ex-stage3-text" class="italic font-mono text-slate-800 bg-purple-50/50 p-2 rounded-lg">
+                                "I usually feel sleepy in my morning classes because I scroll social media until midnight. I should try setting a digital curfew."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 4 -->
+                    <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="font-bold text-amber-900 text-sm flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-full bg-amber-600 text-white text-xs font-bold flex items-center justify-center">4</span>
+                                Stage 4: Exploring (ขั้นสำรวจบทอ่านอย่างลึกซึ้ง)
+                            </h5>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md">Critical Analysis: Fact vs. Opinion</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>สิ่งที่นักเรียนปฏิบัติตามทฤษฎี:</strong> แยกแยะข้อเท็จจริง (Fact) กับข้อคิดเห็น (Opinion) และวิเคราะห์คำศัพท์จากบทอ่าน
+                        </p>
+                        
+                        <div class="bg-white p-3.5 rounded-xl border border-amber-200 text-xs text-slate-700 space-y-2">
+                            <div class="flex items-center justify-between font-bold text-amber-900 border-b border-amber-50 pb-1">
+                                <span>📌 English Fact & Opinion Examples from Passage (ขั้น Exploring):</span>
+                                <button onclick="speakTextById('ex-stage4-text')" class="text-amber-600 hover:text-amber-800 text-xs"><i class="fa-solid fa-volume-high"></i></button>
+                            </div>
+                            <div id="ex-stage4-text" class="space-y-1.5 font-mono text-slate-800">
+                                <p class="bg-amber-50/50 p-2 rounded-lg">
+                                    <strong class="text-blue-700">Fact (ข้อเท็จจริง):</strong> "Blue light emitted from phone screens delays the production of melatonin." (พิสูจน์ได้ทางวิทยาศาสตร์)
+                                </p>
+                                <p class="bg-amber-50/50 p-2 rounded-lg">
+                                    <strong class="text-purple-700">Opinion (ข้อแนะนำ/ความคิดเห็น):</strong> "Doctors strongly advise students to establish a digital curfew." (เป็นคำแนะนำของผู้เชี่ยวชาญ)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 5 -->
+                    <div class="bg-emerald-50/60 border border-emerald-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="font-bold text-emerald-900 text-sm flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">5</span>
+                                Stage 5: Applying (ขั้นการประยุกต์ใช้ความรู้)
+                            </h5>
+                            <span class="text-xs font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">Creation & Real-World Output</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <strong>สิ่งที่นักเรียนปฏิบัติตามทฤษฎี:</strong> นำข้อสรุปจากบทอ่านไปสร้างสรรค์ชิ้นงานจริง เช่น กฎเหล็กประจำห้องเรียน ม.4
+                        </p>
+                        
+                        <div class="bg-white p-3.5 rounded-xl border border-emerald-200 text-xs text-slate-700 space-y-2">
+                            <div class="flex items-center justify-between font-bold text-emerald-900 border-b border-emerald-50 pb-1">
+                                <span>📌 English Application Output (ขั้น Applying):</span>
+                                <button onclick="speakTextById('ex-stage5-text')" class="text-emerald-600 hover:text-emerald-800 text-xs"><i class="fa-solid fa-volume-high"></i></button>
+                            </div>
+                            <div id="ex-stage5-text" class="italic font-mono text-slate-800 bg-emerald-50/50 p-2 rounded-lg">
+                                Class Task: "Create a 3-step 'Healthy Digital Habits Checklist' for Grade 10 students."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Q&A for 5 Stages (ENGLISH QUESTIONS) -->
+                <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-inner space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                        <span class="text-xs font-bold uppercase text-amber-400 tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-base"></i> Interactive Checkpoint: Questions on 5-Stage Reading Process
+                        </span>
+                        <span class="text-[11px] text-slate-400">Click to reveal answer</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-stage-1')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q1: In which stage of the reading process should a student perform "Skimming" and "Scanning"?</span>
+                                <i id="qa-stage-1-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-stage-1" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> **Stage 2: During Reading Stage**. This is when the reader actively moves their eyes across the text to find the main idea and specific details like statistics.
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/90 rounded-xl border border-slate-700 overflow-hidden">
+                            <button onclick="toggleQa('qa-stage-2')" class="w-full text-left p-4 font-semibold text-xs sm:text-sm text-slate-100 flex justify-between items-center hover:bg-slate-700/50 transition">
+                                <span>Q2: Why is "Over 70% of teenagers check their smartphones in bed..." classified as a Fact?</span>
+                                <i id="qa-stage-2-icon" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                            </button>
+                            <div id="qa-stage-2" class="hidden p-4 bg-slate-900/90 text-xs text-slate-300 border-t border-slate-700 leading-relaxed">
+                                <strong class="text-amber-300">Answer:</strong> Because it is based on **verifiable survey data** (a 2025 health survey) that can be objectively proven, rather than personal feelings or preferences.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: VOCABULARY LIST WITH AUDIO -->
+        <section id="tab-vocab" class="tab-content hidden space-y-6">
+            <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="bg-amber-400 text-slate-900 font-bold text-xs uppercase px-3 py-1 rounded-full">Academic Vocabulary</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold font-heading mt-2">คำศัพท์สำคัญประจำบทเรียน (Vocabulary Hub)</h2>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1">กดปุ่มไอคอนลำโพง 🔊 เพื่อฟังเสียงการออกเสียงภาษาอังกฤษแบบถูกต้อง</p>
+                    </div>
+                    <div class="w-full md:w-auto">
+                        <div class="relative">
+                            <input type="text" id="vocab-search" oninput="filterVocab()" placeholder="Search vocabulary..." class="w-full md:w-64 px-4 py-2.5 rounded-xl bg-slate-800 text-white placeholder-slate-400 text-sm border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vocab Cards Grid -->
+            <div id="vocab-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- JavaScript will dynamically render vocabulary items here -->
+            </div>
+        </section>
+
+        <!-- TAB 3: PRACTICE EXERCISES (20 Items) -->
+        <section id="tab-exercise" class="tab-content hidden space-y-6">
+            <!-- Header Card -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="bg-blue-100 text-blue-800 font-bold text-xs px-3 py-1 rounded-full">Part 1: Self-Assessment</span>
+                    <h2 class="text-2xl font-bold font-heading text-slate-800 mt-2">Practice Exercises (20 Questions - 100% English)</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">Consists of Fill-in-the-blanks, Terminology Matching, and Reading Passage Questions.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl flex items-center space-x-4">
+                    <div class="text-center">
+                        <span class="text-2xl font-bold text-blue-600" id="ex-score-display">0</span>
+                        <span class="text-xs text-slate-400 block">/ 20 Marks</span>
+                    </div>
+                    <button onclick="submitPracticeExercises()" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow transition">
+                        Submit & Check Answers
+                    </button>
+                </div>
+            </div>
+
+            <!-- Student Detail Banner before test -->
+            <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 text-sm">
+                <div class="flex items-center space-x-2 text-blue-900 font-semibold">
+                    <i class="fa-solid fa-id-card text-blue-600 text-lg"></i>
+                    <span>Student Profile / ข้อมูลนักเรียน:</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                    <input type="text" id="std-name-ex" placeholder="Full Name / ชื่อ-นามสกุล *" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs w-full sm:w-44 focus:ring-2 focus:ring-blue-500">
+                    <select id="std-class-ex" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-blue-500">
+                        <option value="">-- Select Class --</option>
+                        <option value="ม.4/1">ม.4/1</option>
+                        <option value="ม.4/2">ม.4/2</option>
+                        <option value="ม.4/3">ม.4/3</option>
+                        <option value="ม.4/4">ม.4/4</option>
+                        <option value="ม.4/5">ม.4/5</option>
+                    </select>
+                    <input type="number" id="std-no-ex" placeholder="No. / เลขที่ *" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs w-24 focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <!-- PART A: FILL IN THE BLANKS (6 Items) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <h3 class="font-bold text-lg text-slate-800 font-heading border-b pb-3 flex items-center justify-between">
+                    <span>Part A: Concept Fill in the Blanks (Items 1-6)</span>
+                    <span class="text-xs font-normal text-slate-500">Select the correct term for each definition</span>
+                </h3>
+                
+                <!-- Word Bank Box -->
+                <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 flex flex-wrap gap-2 justify-center">
+                    <span class="bg-white px-3 py-1 rounded-lg border shadow-sm">Schema</span>
+                    <span class="bg-white px-3 py-1 rounded-lg border shadow-sm">Bottom-Up</span>
+                    <span class="bg-white px-3 py-1 rounded-lg border shadow-sm">Top-Down</span>
+                    <span class="bg-white px-3 py-1 rounded-lg border shadow-sm">Interactive Model</span>
+                    <span class="bg-white px-3 py-1 rounded-lg border shadow-sm">Skimming</span>
+                    <span class="bg-white px-3 py-1 rounded-lg border shadow-sm">Scanning</span>
+                </div>
+
+                <div class="space-y-4 text-sm text-slate-700">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="flex-1">1. The mental structure storing a reader's stored prior background knowledge is <span class="font-semibold text-blue-600">__________</span>.</p>
+                        <select id="ex-fill-1" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="">-- Choose Option --</option>
+                            <option value="Schema">Schema</option>
+                            <option value="Bottom-Up">Bottom-Up</option>
+                            <option value="Top-Down">Top-Down</option>
+                            <option value="Interactive Model">Interactive Model</option>
+                            <option value="Skimming">Skimming</option>
+                            <option value="Scanning">Scanning</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="flex-1">2. Decoding letters, phonemes, and grammar before constructing sentence meaning is <span class="font-semibold text-blue-600">__________</span> decoding.</p>
+                        <select id="ex-fill-2" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="">-- Choose Option --</option>
+                            <option value="Schema">Schema</option>
+                            <option value="Bottom-Up">Bottom-Up</option>
+                            <option value="Top-Down">Top-Down</option>
+                            <option value="Interactive Model">Interactive Model</option>
+                            <option value="Skimming">Skimming</option>
+                            <option value="Scanning">Scanning</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="flex-1">3. Reading rapidly across text lines to identify the general gist or main idea is <span class="font-semibold text-blue-600">__________</span>.</p>
+                        <select id="ex-fill-3" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="">-- Choose Option --</option>
+                            <option value="Schema">Schema</option>
+                            <option value="Bottom-Up">Bottom-Up</option>
+                            <option value="Top-Down">Top-Down</option>
+                            <option value="Interactive Model">Interactive Model</option>
+                            <option value="Skimming">Skimming</option>
+                            <option value="Scanning">Scanning</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="flex-1">4. Simultaneously combining word decoding with concept prediction represents the <span class="font-semibold text-blue-600">__________</span>.</p>
+                        <select id="ex-fill-4" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="">-- Choose Option --</option>
+                            <option value="Schema">Schema</option>
+                            <option value="Bottom-Up">Bottom-Up</option>
+                            <option value="Top-Down">Top-Down</option>
+                            <option value="Interactive Model">Interactive Model</option>
+                            <option value="Skimming">Skimming</option>
+                            <option value="Scanning">Scanning</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="flex-1">5. Searching specifically for dates, percentage numbers, or proper nouns is called <span class="font-semibold text-blue-600">__________</span>.</p>
+                        <select id="ex-fill-5" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="">-- Choose Option --</option>
+                            <option value="Schema">Schema</option>
+                            <option value="Bottom-Up">Bottom-Up</option>
+                            <option value="Top-Down">Top-Down</option>
+                            <option value="Interactive Model">Interactive Model</option>
+                            <option value="Skimming">Skimming</option>
+                            <option value="Scanning">Scanning</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <p class="flex-1">6. Relying on high-level topic expectation and contextual guessing is the <span class="font-semibold text-blue-600">__________</span> approach.</p>
+                        <select id="ex-fill-6" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                            <option value="">-- Choose Option --</option>
+                            <option value="Schema">Schema</option>
+                            <option value="Bottom-Up">Bottom-Up</option>
+                            <option value="Top-Down">Top-Down</option>
+                            <option value="Interactive Model">Interactive Model</option>
+                            <option value="Skimming">Skimming</option>
+                            <option value="Scanning">Scanning</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART B: MATCHING (6 Items) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <h3 class="font-bold text-lg text-slate-800 font-heading border-b pb-3">
+                    Part B: Terminology Matching (Items 7-12)
+                </h3>
+
+                <div id="matching-container" class="space-y-3">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <!-- PART C: PASSAGE-BASED MULTIPLE CHOICE (8 Items) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <h3 class="font-bold text-lg text-slate-800 font-heading border-b pb-3">
+                    Part C: Reading Passage Comprehension (Items 13-20)
+                </h3>
+
+                <!-- PRACTICE READING PASSAGE BOX -->
+                <div class="bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                        <span class="text-xs font-bold uppercase text-amber-400"><i class="fa-solid fa-book-open mr-1"></i> Practice Passage (M.4 Level)</span>
+                        <button onclick="speakTextById('practice-passage-text')" class="text-xs text-amber-300 hover:underline flex items-center gap-1"><i class="fa-solid fa-volume-high"></i> Listen Passage</button>
+                    </div>
+                    <p id="practice-passage-text" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                        "Modern high school students live in a digital environment where online media provides instant information. However, recent educational studies indicate that students who read printed textbooks retain deep conceptual understanding better than those reading long articles on digital screens. Screen readers tend to browse quickly, skimming headlines rather than analyzing sentence connections. To overcome this limitation, critical reading experts recommend active annotation—underlining key arguments and making margin notes—regardless of whether students read on digital devices or paper."
+                    </p>
+                </div>
+
+                <div id="practice-mcq-container" class="space-y-6">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <div class="flex justify-center pt-4">
+                <button onclick="submitPracticeExercises()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg transition text-base flex items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Submit Practice Exercises & Get Score
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 4: POST-TEST (20 Items) -->
+        <section id="tab-posttest" class="tab-content hidden space-y-6">
+            <!-- Header Banner -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="bg-amber-400 text-slate-900 font-bold text-xs px-3 py-1 rounded-full uppercase">Final Examination</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-heading mt-2">Post-Test Examination (20 Questions - 100% English)</h2>
+                    <p class="text-xs sm:text-sm text-blue-200 mt-1">Passage-based Critical Reading Assessment | 4 Choices per Question</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl text-center min-w-[160px]">
+                    <span id="posttest-timer" class="text-2xl font-bold text-amber-300 font-mono">20:00</span>
+                    <span class="text-xs text-blue-200 block mt-0.5">Timer Remaining</span>
+                </div>
+            </div>
+
+            <!-- Student Profile Form -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Exam Candidate Information</h4>
+                        <p class="text-xs text-slate-500">Please enter your student details before starting the exam.</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                    <input type="text" id="std-name-post" placeholder="Full Name / ชื่อ-นามสกุล *" class="px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 w-full sm:w-48">
+                    <select id="std-class-post" class="px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500">
+                        <option value="">-- Class --</option>
+                        <option value="ม.4/1">ม.4/1</option>
+                        <option value="ม.4/2">ม.4/2</option>
+                        <option value="ม.4/3">ม.4/3</option>
+                        <option value="ม.4/4">ม.4/4</option>
+                        <option value="ม.4/5">ม.4/5</option>
+                    </select>
+                    <input type="number" id="std-no-post" placeholder="No. *" class="px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-amber-500 w-24">
+                </div>
+            </div>
+
+            <!-- Post-Test Questions Container -->
+            <div id="posttest-questions-container" class="space-y-8">
+                <!-- Dynamically rendered with Reading Passages by JS -->
+            </div>
+
+            <!-- Submit Exam Button -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-xs text-slate-500">
+                    * Upon submission, your test score and certificate summary will be updated automatically.
+                </div>
+                <button onclick="submitPostTest()" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-8 py-3.5 rounded-2xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Post-Test Examination
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 5: SCORE SUMMARY & CERTIFICATE -->
+        <section id="tab-summary" class="tab-content hidden space-y-6">
+            <div id="certificate-card" class="bg-white rounded-3xl border-4 border-indigo-100 p-6 sm:p-10 shadow-2xl relative overflow-hidden max-w-3xl mx-auto">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-bl-full pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-amber-500/10 rounded-tr-full pointer-events-none"></div>
+
+                <div class="text-center space-y-3 border-b-2 border-indigo-50 pb-6">
+                    <div class="inline-block p-3 bg-indigo-50 rounded-full text-indigo-600 mb-1">
+                        <i class="fa-solid fa-award text-4xl"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-heading text-slate-900">ใบสรุปผลการเรียนรู้และความสำเร็จ</h2>
+                    <p class="text-xs sm:text-sm text-slate-500">รายวิชาการอ่านภาษาอังกฤษเชิงวิจารณ์ (อ30222) | โรงเรียนเตรียมอุดมศึกษาน้อมเกล้านครราชสีมา</p>
+                </div>
+
+                <div class="my-6 space-y-4 text-center">
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-semibold">มอบให้เพื่อแสดงว่า</p>
+                    <h3 id="cert-student-name" class="text-2xl font-bold text-indigo-950 underline decoration-amber-400 font-heading">
+                        (ยังไม่ได้ลงทะเบียนทำแบบฝึกหัด/ข้อสอบ)
+                    </h3>
+                    <p id="cert-student-info" class="text-sm text-slate-600 font-medium">
+                        ชั้น ม.4/-- | เลขที่ --
+                    </p>
+                    <p class="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+                        ได้ผ่านการศึกษาบทเรียนออนไลน์เรื่อง <strong>Foundations of Reading & Reading Process</strong> และทำแบบวัดผลการเรียนรู้เรียบร้อยแล้ว
+                    </p>
+                </div>
+
+                <!-- Score Grid -->
+                <div class="grid grid-cols-2 gap-4 my-6">
+                    <div class="bg-blue-50/80 p-4 rounded-2xl border border-blue-100 text-center">
+                        <span class="text-xs font-semibold text-blue-700 block">แบบฝึกหัด (Practice)</span>
+                        <span id="cert-score-ex" class="text-3xl font-extrabold text-blue-900 mt-1 block">0 / 20</span>
+                    </div>
+                    <div class="bg-amber-50/80 p-4 rounded-2xl border border-amber-100 text-center">
+                        <span class="text-xs font-semibold text-amber-800 block">แบบทดสอบหลังเรียน (Post-Test)</span>
+                        <span id="cert-score-post" class="text-3xl font-extrabold text-amber-900 mt-1 block">0 / 20</span>
+                    </div>
+                </div>
+
+                <!-- Teacher Sign Block -->
+                <div class="flex justify-between items-end pt-6 border-t border-slate-100 text-xs text-slate-500">
+                    <div>
+                        <p>วันที่ทำรายการ: <span id="cert-date">-</span></p>
+                        <p class="text-[10px] text-slate-400 mt-0.5">Verification Code: READING-O30222-2026</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-bold text-slate-800">นางสาวภิญญาพัชญ์ คบด่านกลาง</div>
+                        <div class="text-[11px] text-slate-500">ครูผู้สอน / วิทยฐานะชำนาญการพิเศษ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-3 no-print">
+                <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white text-sm font-bold px-6 py-2.5 rounded-xl shadow transition flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i> พิมพ์ / เซฟเป็น PDF ใบสรุปผล
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 6: TEACHER PORTAL (PASSCODE PROTECTED) -->
+        <section id="tab-teacher" class="tab-content hidden space-y-6">
+            <div class="bg-amber-500 text-slate-950 rounded-3xl p-6 sm:p-8 shadow-lg flex items-center justify-between">
+                <div>
+                    <span class="bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full">Teacher Zone</span>
+                    <h2 class="text-2xl font-bold font-heading mt-2">ส่วนสำหรับครูผู้สอน (เฉลยและคำอธิบายโดยละเอียด)</h2>
+                    <p class="text-xs text-slate-900 font-medium mt-1">ผู้สอน: นางสาวภิญญาพัชญ์ คบด่านกลาง | โรงเรียนเตรียมอุดมศึกษาน้อมเกล้านครราชสีมา</p>
+                </div>
+                <div class="text-4xl opacity-20">
+                    <i class="fa-solid fa-lock-open"></i>
+                </div>
+            </div>
+
+            <!-- Answer Keys List -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <h3 class="text-lg font-bold text-slate-800 font-heading border-b pb-3 text-indigo-700 flex items-center gap-2">
+                    <i class="fa-solid fa-key"></i> Practice Exercises Key & Explanations (20 Items)
+                </h3>
+                <div id="teacher-practice-keys" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <h3 class="text-lg font-bold text-slate-800 font-heading border-b pb-3 text-amber-700 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check"></i> Post-Test Examination Key & Explanations (20 Items)
+                </h3>
+                <div id="teacher-posttest-keys" class="space-y-3 text-xs sm:text-sm">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 7: PRINT HUB -->
+        <section id="tab-print" class="tab-content hidden space-y-6 no-print">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-4">
+                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-print"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-heading text-slate-800">ศูนย์สั่งพิมพ์เอกสารการเรียนและชุดข้อสอบ</h2>
+                <p class="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto">
+                    ครูผู้สอนหรือนักเรียนสามารถเลือกพิมพ์บทเรียน แบบฝึกหัด หรือแบบทดสอบไปใช้งานในรูปแบบชีทเอกสารกระดาษได้
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-4">
+                    <button onclick="printSection('tab-lesson')" class="p-5 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition text-left space-y-2">
+                        <i class="fa-solid fa-file-lines text-2xl text-blue-600"></i>
+                        <h4 class="font-bold text-slate-800 text-sm">พิมพ์เนื้อหาบทเรียน</h4>
+                        <p class="text-xs text-slate-500">บทความ ทฤษฎี Schema และ Reading Models</p>
+                    </button>
+
+                    <button onclick="printSection('tab-exercise')" class="p-5 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition text-left space-y-2">
+                        <i class="fa-solid fa-pen-to-square text-2xl text-indigo-600"></i>
+                        <h4 class="font-bold text-slate-800 text-sm">พิมพ์แบบฝึกหัด (20 ข้อ)</h4>
+                        <p class="text-xs text-slate-500">สำหรับทำบนกระดาษในห้องเรียน</p>
+                    </button>
+
+                    <button onclick="printSection('tab-posttest')" class="p-5 rounded-2xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition text-left space-y-2">
+                        <i class="fa-solid fa-clipboard-list text-2xl text-amber-600"></i>
+                        <h4 class="font-bold text-slate-800 text-sm">พิมพ์แบบทดสอบ (20 ข้อ)</h4>
+                        <p class="text-xs text-slate-500">ชุดข้อสอบตัวเลือก 4 ช้อยส์สำหรับวัดผล</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 text-xs text-center no-print">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>รายวิชาการอ่านภาษาอังกฤษเชิงวิจารณ์ (อ30222) | กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ</p>
+            <p>ครูผู้สอน: <strong>นางสาวภิญญาพัชญ์ คบด่านกลาง</strong> (ตำแหน่งครู วิทยฐานะชำนาญการพิเศษ)</p>
+            <p class="text-slate-500">โรงเรียนเตรียมอุดมศึกษาน้อมเกล้านครราชสีมา &copy; 2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- TEACHER AUTH MODAL -->
+    <div id="teacher-auth-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 space-y-4">
+            <div class="text-center space-y-2">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold font-heading text-slate-800">ยืนยันรหัสผ่านครูผู้สอน</h3>
+                <p class="text-xs text-slate-500">กรุณากรอกรหัสผ่านเพื่อเข้าสู่มุมครูผู้สอนและดูเฉลย</p>
+            </div>
+
+            <div class="space-y-3">
+                <input type="password" id="teacher-pin-input" placeholder="Enter PIN..." class="w-full text-center tracking-widest text-lg py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <div id="pin-error-msg" class="text-xs text-rose-600 text-center hidden font-semibold">
+                    * รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง
+                </div>
+            </div>
+
+            <div class="flex space-x-3 pt-2">
+                <button onclick="closeTeacherAuthModal()" class="w-1/2 py-2.5 rounded-xl border border-slate-300 text-slate-600 text-xs font-bold hover:bg-slate-50">
+                    ยกเลิก
+                </button>
+                <button onclick="verifyTeacherPin()" class="w-1/2 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold shadow">
+                    ยืนยัน
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM NOTIFICATION MODAL -->
+    <div id="custom-alert-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-100 text-center space-y-4">
+            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <h4 id="custom-alert-title" class="font-bold text-slate-800 text-base">Notification</h4>
+            <p id="custom-alert-message" class="text-xs text-slate-600 leading-relaxed"></p>
+            <button onclick="closeCustomAlert()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow">
+                OK / ตกลง
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const vocabList = [
+            { word: "Schema", pos: "n.", phonetic: "/ˈskiː.mə/", thai: "เค้าโครงความรู้เดิมในสมอง", example: "Schema helps readers construct meaning from new texts based on prior knowledge." },
+            { word: "Comprehension", pos: "n.", phonetic: "/ˌkɒm.prɪˈhen.ʃən/", thai: "ความเข้าใจบทอ่าน", example: "Reading comprehension requires both decoding words and understanding context." },
+            { word: "Decoding", pos: "n.", phonetic: "/diːˈkəʊ.dɪŋ/", thai: "การถอดรหัสตัวอักษรและเสียง", example: "Decoding is an essential component of the bottom-up reading model." },
+            { word: "Skimming", pos: "n.", phonetic: "/ˈskɪm.ɪŋ/", thai: "การอ่านกวาดสายตาหาใจความสำคัญ", example: "She was skimming the chapter to prepare for the discussion." },
+            { word: "Scanning", pos: "n.", phonetic: "/ˈskæn.ɪŋ/", thai: "การอ่านกวาดสายตาหาข้อมูลเฉพาะ", example: "Scanning is useful when looking for dates, names, or numbers." },
+            { word: "Inference", pos: "n.", phonetic: "/ˈɪn.fər.əns/", thai: "การอนุมาน/การตีความข้อความที่แฝงอยู่", example: "Critical readers make inferences based on evidence in the text." },
+            { word: "Interactive", pos: "adj.", phonetic: "/ˌɪn.təˈræk.tɪv/", thai: "ที่มีการปฏิสัมพันธ์สอดประสานกัน", example: "The interactive model combines top-down and bottom-up skills." },
+            { word: "Context Clue", pos: "n.", phonetic: "/ˈkɒn.tekst kluː/", thai: "บริบทแวดล้อมที่ช่วยบอกความหมาย", example: "Use context clues to guess the meaning of unfamiliar vocabulary." },
+            { word: "Annotating", pos: "n.", phonetic: "/ˈæn.ə.teɪt.ɪŋ/", thai: "การเขียนโน้ตย่อหรือทำเครื่องหมายขณะอ่าน", example: "Annotating text helps improve critical engagement." },
+            { word: "Synthesize", pos: "v.", phonetic: "/ˈsɪn.θə.saɪz/", thai: "สังเคราะห์/รวบรวมข้อมูลจากหลายแหล่ง", example: "Good readers synthesize information to form new conclusions." },
+            { word: "Linguistic", pos: "adj.", phonetic: "/lɪŋˈɡwɪs.tɪk/", thai: "เกี่ยวกับภาษาศาสตร์/ไวยากรณ์", example: "Linguistic schemata include vocabulary, grammar, and idioms." },
+            { word: "Perspective", pos: "n.", phonetic: "/pəˈspek.tɪv/", thai: "มุมมอง/ทัศนคติของผู้เขียน", example: "Critique the author's perspective before accepting their argument." }
+        ];
+
+        const matchingData = [
+            { id: 1, term: "Linguistic Schema", answer: "Knowledge of vocabulary, grammar, and sentence structures" },
+            { id: 2, term: "Content Schema", answer: "Background knowledge about topic, culture, and subject matter" },
+            { id: 3, term: "Formal Schema", answer: "Knowledge of text structures, genres, and organization patterns" },
+            { id: 4, term: "Annotating", answer: "Making notes, highlighting, or marking key ideas on text" },
+            { id: 5, term: "Inference", answer: "Logical conclusion drawn from text clues rather than direct statements" },
+            { id: 6, term: "Author's Tone", answer: "The writer's attitude or emotion expressed through word choice" }
+        ];
+
+        const practiceMCQData = [
+            {
+                q: "13. According to the practice passage, why do students retain information better when reading printed textbooks compared to digital screens?",
+                options: [
+                    "A. Digital screens contain no pictures or graphics.",
+                    "B. Screen readers tend to browse quickly and skim headlines rather than analyze connections.",
+                    "C. Printed textbooks use easier English vocabulary.",
+                    "D. High school teachers forbid students from using digital tablets."
+                ],
+                answer: 1
+            },
+            {
+                q: "14. What effective strategy do critical reading experts recommend to overcome digital reading limitations?",
+                options: [
+                    "A. Reading passages at maximum speed",
+                    "B. Active annotation such as underlining arguments and taking margin notes",
+                    "C. Translating every word using automated translation tools",
+                    "D. Memorizing entire textbook paragraphs"
+                ],
+                answer: 1
+            },
+            {
+                q: "15. Which concept describes utilizing prior knowledge to understand a newly encountered reading text?",
+                options: [
+                    "A. Rote Memorization",
+                    "B. Schema Theory",
+                    "C. Bottom-Up Decoding",
+                    "D. Word Translation"
+                ],
+                answer: 1
+            },
+            {
+                q: "16. When a reader decodes individual word letters and grammatical structures step-by-step, which model is applied?",
+                options: [
+                    "A. Top-Down Model",
+                    "B. Bottom-Up Model",
+                    "C. Interactive Model",
+                    "D. Critical Analysis Model"
+                ],
+                answer: 1
+            },
+            {
+                q: "17. Which activity is typical during the Pre-Reading Stage of reading comprehension?",
+                options: [
+                    "A. Taking a final examination test",
+                    "B. Previewing titles and predicting text content",
+                    "C. Writing an essay summary",
+                    "D. Analyzing figurative speech"
+                ],
+                answer: 1
+            },
+            {
+                q: "18. Which statement represents an objective FACT?",
+                options: [
+                    "A. English critical reading is the most enjoyable subject in high school.",
+                    "B. Printed textbooks retain deep conceptual understanding better according to educational studies.",
+                    "C. Reading on paper is always better than reading on tablets.",
+                    "D. Tablets are too expensive for students."
+                ],
+                answer: 1
+            },
+            {
+                q: "19. In which situation is Scanning the most efficient strategy?",
+                options: [
+                    "A. Reading a fictional story for leisure",
+                    "B. Locating a specific publication year or telephone number",
+                    "C. Finding the general theme of a novel",
+                    "D. Analyzing an author's emotional bias"
+                ],
+                answer: 1
+            },
+            {
+                q: "20. How does a reader demonstrate the Interactive Reading Model?",
+                options: [
+                    "A. Relying only on dictionary definitions",
+                    "B. Combining prior background knowledge with vocabulary context clues simultaneously",
+                    "C. Skipping confusing text sentences completely",
+                    "D. Memorizing grammar rules without reading passages"
+                ],
+                answer: 1
+            }
+        ];
+
+        // POST-TEST PASSAGE-BASED QUESTIONS (20 ITEMS)
+        const postTestPassages = [
+            {
+                title: "Passage A: Digital Reading vs. Paper Reading",
+                text: "In modern classrooms, digital tablets and laptops have replaced traditional paper materials. Educational researcher Dr. Clara Vance evaluated 500 Grade 10 students reading academic passages on paper versus digital screens. Her 2025 study revealed that while digital readers read 15% faster, paper readers scored 22% higher on deep comprehension and inference tests. Dr. Vance noted that digital reading promotes a 'skimming mindset' where students jump across hyperlinks rather than processing complex sentence structures carefully."
+            },
+            {
+                title: "Passage B: Artificial Intelligence in High School Classrooms",
+                text: "Artificial Intelligence (AI) writing assistants have rapidly entered secondary education. Some educators fear that generative AI encourages mental laziness, while others view it as an opportunity to develop critical reading skills. When students review AI-generated essays, they must analyze factual accuracy, evaluate tone, and identify unsupported claims. By acting as critical editors, students activate their Content Schema and improve their critical evaluation skills."
+            },
+            {
+                title: "Passage C: Media Literacy and Detecting Bias",
+                text: "With thousands of news reports published online daily, critical media literacy has become essential. Readers cannot accept every article as absolute truth. Reliable critical readers examine the author's background, check whether evidence supports statements, and distinguish between facts and emotional opinions. Recognizing loaded vocabulary and sensational headlines enables students to detect subtle author bias."
+            },
+            {
+                title: "Passage D: Sleep, Health, and Academic Performance",
+                text: "High school students in Thailand face heavy academic workloads. A national health report revealed that over 65% of M.4 students suffer from chronic sleep deprivation, averaging less than 6 hours of sleep per night. Medical experts explain that blue light emitted from electronic screens suppresses melatonin production, delaying natural sleep cycles. Consequently, doctors recommend setting a strict digital curfew to improve morning focus."
+            }
+        ];
+
+        const postTestQuestions = [
+            // Passage A (Q1 - Q5)
+            {
+                passageIndex: 0,
+                q: "1. According to Passage A, what was the primary advantage of reading on digital screens?",
+                options: [
+                    "A. Digital readers scored 22% higher on inference tests.",
+                    "B. Digital readers read 15% faster than paper readers.",
+                    "C. Digital materials are completely free of errors.",
+                    "D. Digital readers remembered vocabulary longer."
+                ],
+                answer: 1,
+                exp: "Passage A explicitly states: 'while digital readers read 15% faster, paper readers scored 22% higher on deep comprehension.'"
+            },
+            {
+                passageIndex: 0,
+                q: "2. Why did paper readers achieve higher scores in deep comprehension and inference tests?",
+                options: [
+                    "A. Paper materials contain more interactive videos.",
+                    "B. Digital reading promotes a 'skimming mindset' that reduces careful processing of complex sentences.",
+                    "C. Paper readers were given extra time during testing.",
+                    "D. Digital screens do not display full English sentences."
+                ],
+                answer: 1,
+                exp: "Dr. Vance noted that digital screens encourage a skimming mindset where readers jump across links instead of analyzing complex sentences."
+            },
+            {
+                passageIndex: 0,
+                q: "3. When a student uses prior knowledge about reading habits to understand Dr. Vance's study, which process is activated?",
+                options: [
+                    "A. Schema Activation",
+                    "B. Phonetic Decoding Only",
+                    "C. Letter-by-Letter Spelling",
+                    "D. Automated Translation"
+                ],
+                answer: 0,
+                exp: "Connecting text details to stored background knowledge is the core definition of Schema Theory."
+            },
+            {
+                passageIndex: 0,
+                q: "4. Which reading model is demonstrated when a student decodes Dr. Vance's statistics percentage by percentage?",
+                options: [
+                    "A. Top-Down Model",
+                    "B. Bottom-Up Model",
+                    "C. Interactive Model",
+                    "D. Rote Model"
+                ],
+                answer: 1,
+                exp: "Focusing on individual symbols, numbers, and lexical items step-by-step is a Bottom-Up decoding process."
+            },
+            {
+                passageIndex: 0,
+                q: "5. What is the author's primary purpose in Passage A?",
+                options: [
+                    "A. To entertain readers with a funny story",
+                    "B. To inform readers about research comparing digital and paper reading comprehension",
+                    "C. To persuade students to throw away all computers",
+                    "D. To sell printed textbooks to high schools"
+                ],
+                answer: 1,
+                exp: "The passage presents factual study results objectively to inform the audience."
+            },
+
+            // Passage B (Q6 - Q10)
+            {
+                passageIndex: 1,
+                q: "6. How can AI-generated essays be used to enhance students' critical reading skills according to Passage B?",
+                options: [
+                    "A. By having students memorize AI essay paragraphs word-for-word.",
+                    "B. By training students to edit, check factual accuracy, evaluate tone, and spot unsupported claims.",
+                    "C. By replacing English teachers with computer software.",
+                    "D. By allowing students to skip reading assignments completely."
+                ],
+                answer: 1,
+                exp: "Passage B states that students acting as critical editors analyze facts, evaluate tone, and identify unsupported claims."
+            },
+            {
+                passageIndex: 1,
+                q: "7. When a student checks an AI text against their science background knowledge, which schema is used?",
+                options: [
+                    "A. Linguistic Schema",
+                    "B. Content Schema",
+                    "C. Formal Schema",
+                    "D. Structural Schema"
+                ],
+                answer: 1,
+                exp: "Content Schema refers specifically to domain knowledge about subject topics (science, history, current events)."
+            },
+            {
+                passageIndex: 1,
+                q: "8. In which stage of the 5-Stage Reading Process does evaluating AI-generated text for factual accuracy occur?",
+                options: [
+                    "A. Stage 1: Pre-Reading Stage",
+                    "B. Stage 4: Exploring Stage (Critical Analysis)",
+                    "C. Stage 5: Applying Stage",
+                    "D. Title Preview Stage"
+                ],
+                answer: 1,
+                exp: "Critical analysis of text validity, facts vs. opinions, and author claims takes place in Stage 4: Exploring."
+            },
+            {
+                passageIndex: 1,
+                q: "9. What can be inferred about generative AI in secondary education from Passage B?",
+                options: [
+                    "A. AI will completely eliminate the need for reading comprehension.",
+                    "B. AI presents both potential challenges (laziness) and learning opportunities (critical editing).",
+                    "C. Every teacher agrees that AI should be banned from classrooms.",
+                    "D. AI never makes factual errors in English essays."
+                ],
+                answer: 1,
+                exp: "Passage B highlights two contrasting views (fear of mental laziness vs. opportunity for critical editing)."
+            },
+            {
+                passageIndex: 1,
+                q: "10. In the phrase 'evaluate factual accuracy,' what does 'accuracy' mean?",
+                options: [
+                    "A. Correctness and truthfulness",
+                    "B. Speed and fastness",
+                    "C. Difficulty and hardness",
+                    "D. Length and word count"
+                ],
+                answer: 0,
+                exp: "In academic English, accuracy refers to being correct, precise, and free from error."
+            },
+
+            // Passage C (Q11 - Q15)
+            {
+                passageIndex: 2,
+                q: "11. Why is critical media literacy essential for modern high school students according to Passage C?",
+                options: [
+                    "A. Because all online news reports are guaranteed to be 100% accurate.",
+                    "B. Because thousands of online reports are published daily and readers should not accept every text as absolute truth.",
+                    "C. Because smartphones are required in every English exam.",
+                    "D. Because news writers do not use English grammar."
+                ],
+                answer: 1,
+                exp: "Passage C notes that due to huge daily online output, readers must evaluate arguments rather than blindly trusting texts."
+            },
+            {
+                passageIndex: 2,
+                q: "12. Which action is recommended for a critical reader in Passage C?",
+                options: [
+                    "A. Believe every sensational headline immediately.",
+                    "B. Examine author background, check supporting evidence, and distinguish facts from opinions.",
+                    "C. Skip articles that contain long paragraphs.",
+                    "D. Share articles on social media without reading them."
+                ],
+                answer: 1,
+                exp: "Passage C lists checking evidence, author background, and distinguishing facts from opinions as key critical skills."
+            },
+            {
+                passageIndex: 2,
+                q: "13. Which of the following is an example of an OPINION?",
+                options: [
+                    "A. Over 65% of surveyed M.4 students sleep under 6 hours per night.",
+                    "B. Reading critical articles is the most exciting activity in school.",
+                    "C. Blue light suppresses melatonin production in human brains.",
+                    "D. Dr. Vance published a reading study in 2025."
+                ],
+                answer: 1,
+                exp: "'Most exciting' expresses subjective personal feeling, making it an opinion."
+            },
+            {
+                passageIndex: 2,
+                q: "14. What does 'Author's Tone' refer to in critical reading analysis?",
+                options: [
+                    "A. The physical volume of the speaker's voice",
+                    "B. The author's emotional attitude and perspective conveyed through word choice",
+                    "C. The font color of printed text",
+                    "D. The speed of reading aloud"
+                ],
+                answer: 1,
+                exp: "Author's Tone reflects the writer's attitude, emotional stance, or bias revealed in language style."
+            },
+            {
+                passageIndex: 2,
+                q: "15. Recognizing that news headlines often follow specific structural conventions relies on which schema?",
+                options: [
+                    "A. Formal / Textual Schema",
+                    "B. Content Schema",
+                    "C. Personal Memory Schema",
+                    "D. Phonetic Schema"
+                ],
+                answer: 0,
+                exp: "Formal/Textual Schema represents organizational patterns, news structures, and literary genres."
+            },
+
+            // Passage D (Q16 - Q20)
+            {
+                passageIndex: 3,
+                q: "16. According to Passage D, what percentage of surveyed M.4 students suffer from chronic sleep deprivation?",
+                options: [
+                    "A. Over 50%",
+                    "B. Over 65%",
+                    "C. Exactly 100%",
+                    "D. Less than 20%"
+                ],
+                answer: 1,
+                exp: "Passage D states: 'A national health report revealed that over 65% of M.4 students suffer from chronic sleep deprivation.'"
+            },
+            {
+                passageIndex: 3,
+                q: "17. What biological mechanism causes smartphone use before bed to delay sleep?",
+                options: [
+                    "A. Blue light emitted from screens suppresses melatonin production.",
+                    "B. Screen batteries generate excessive heat.",
+                    "C. Text messages increase physical arm strength.",
+                    "D. WiFi signals block brain memory."
+                ],
+                answer: 0,
+                exp: "The text explains that blue light suppresses melatonin, the hormone regulating natural sleep cycles."
+            },
+            {
+                passageIndex: 3,
+                q: "18. What action do medical experts advise students to take in Passage D?",
+                options: [
+                    "A. Drink coffee right before going to bed.",
+                    "B. Establish a strict digital curfew before bedtime.",
+                    "C. Play mobile video games throughout the night.",
+                    "D. Stop attending morning high school classes."
+                ],
+                answer: 1,
+                exp: "Passage D states: 'doctors recommend setting a strict digital curfew to improve morning focus.'"
+            },
+            {
+                passageIndex: 3,
+                q: "19. Which stage of the 5-Stage Reading Process involves applying the 'digital curfew' recommendation to create a personal sleeping schedule?",
+                options: [
+                    "A. Stage 1: Pre-Reading Stage",
+                    "B. Stage 2: During Reading Stage",
+                    "C. Stage 5: Applying Stage",
+                    "D. Decoding Stage"
+                ],
+                answer: 2,
+                exp: "Stage 5: Applying involves taking insights from reading and transferring them into real-world behavior or projects."
+            },
+            {
+                passageIndex: 3,
+                q: "20. Which reading model is active when a reader simultaneously uses health background knowledge while decoding terms like 'melatonin'?",
+                options: [
+                    "A. Bottom-Up Model only",
+                    "B. Top-Down Model only",
+                    "C. Interactive Model",
+                    "D. Translation Model"
+                ],
+                answer: 2,
+                exp: "The Interactive Model operates when background knowledge (Top-Down) and vocabulary decoding (Bottom-Up) work together."
+            }
+        ];
+
+        function switchTab(tabId) {
+            // Hide all tab content sections
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.add('hidden'));
+
+            // Show target tab
+            const target = document.getElementById(tabId);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+
+            // Update nav button styles
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('bg-white/20', 'text-white', 'shadow-sm', 'font-semibold');
+                btn.classList.add('text-blue-100');
+            });
+
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white/20', 'text-white', 'shadow-sm', 'font-semibold');
+                activeBtn.classList.remove('text-blue-100');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Web Speech API helper for audio playback
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) {
+                showCustomAlert('Audio Error', 'Speech synthesis is not supported in this browser.');
+                return;
+            }
+            window.speechSynthesis.cancel(); // Stop current speech
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9; // Slight slowing for clear pronunciation
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function speakTextById(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                speakText(el.innerText || el.textContent);
+            }
+        }
+
+        // Accordion Toggle
+        function toggleQa(elementId) {
+            const content = document.getElementById(elementId);
+            const icon = document.getElementById(elementId + '-icon');
+            if (content) {
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    if (icon) icon.classList.add('rotate-180');
+                } else {
+                    content.classList.add('hidden');
+                    if (icon) icon.classList.remove('rotate-180');
+                }
+            }
+        }
+
+        // Render Vocabulary Hub
+        function renderVocab() {
+            const container = document.getElementById('vocab-container');
+            if (!container) return;
+
+            container.innerHTML = vocabList.map((item, idx) => `
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-lg font-bold text-slate-800 font-heading">${item.word}</h4>
+                            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700">${item.pos}</span>
+                        </div>
+                        <p class="text-xs font-mono text-slate-400 mt-0.5">${item.phonetic}</p>
+                        <p class="text-sm font-semibold text-blue-900 mt-2">${item.thai}</p>
+                        <p class="text-xs text-slate-600 mt-2 italic bg-slate-50 p-2 rounded-lg border border-slate-100">"${item.example}"</p>
+                    </div>
+                    <button onclick="speakText('${item.word}. ${item.example}')" class="w-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 font-bold py-2 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-volume-high"></i> Listen Pronunciation
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function filterVocab() {
+            const query = document.getElementById('vocab-search').value.toLowerCase();
+            const cards = document.querySelectorAll('#vocab-container > div');
+            vocabList.forEach((item, idx) => {
+                const match = item.word.toLowerCase().includes(query) || item.thai.toLowerCase().includes(query) || item.example.toLowerCase().includes(query);
+                if (cards[idx]) {
+                    cards[idx].style.display = match ? 'flex' : 'none';
+                }
+            });
+        }
+
+        // Render Terminology Matching
+        function renderMatching() {
+            const container = document.getElementById('matching-container');
+            if (!container) return;
+
+            const optionsText = [
+                "Knowledge of vocabulary, grammar, and sentence structures",
+                "Background knowledge about topic, culture, and subject matter",
+                "Knowledge of text structures, genres, and organization patterns",
+                "Making notes, highlighting, or marking key ideas on text",
+                "Logical conclusion drawn from text clues rather than direct statements",
+                "The writer's attitude or emotion expressed through word choice"
+            ];
+
+            container.innerHTML = matchingData.map((m, idx) => `
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div class="font-bold text-slate-800 text-sm">
+                        Item ${idx + 7}: <span class="text-blue-900">${m.term}</span>
+                    </div>
+                    <select id="ex-match-${m.id}" class="w-full sm:w-auto px-3 py-1.5 rounded-lg border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-blue-500 font-medium">
+                        <option value="">-- Choose Definition --</option>
+                        ${optionsText.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                </div>
+            `).join('');
+        }
+
+        // Render Practice Multiple Choice
+        function renderPracticeMCQ() {
+            const container = document.getElementById('practice-mcq-container');
+            if (!container) return;
+
+            container.innerHTML = practiceMCQData.map((item, idx) => `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                    <p class="font-bold text-slate-800 text-sm">${item.q}</p>
+                    <div class="space-y-2 text-xs sm:text-sm">
+                        ${item.options.map((opt, oIdx) => `
+                            <label class="flex items-center space-x-2.5 p-2 rounded-xl hover:bg-white border border-transparent hover:border-slate-200 cursor-pointer transition">
+                                <input type="radio" name="practice-mcq-${idx}" value="${oIdx}" class="text-blue-600 focus:ring-blue-500">
+                                <span class="text-slate-700">${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPostTest() {
+            const container = document.getElementById('posttest-questions-container');
+            if (!container) return;
+
+            let html = '';
+            let currentPassageIndex = -1;
+
+            postTestQuestions.forEach((qItem, qIdx) => {
+                // Check if new passage block should be rendered
+                if (qItem.passageIndex !== currentPassageIndex) {
+                    currentPassageIndex = qItem.passageIndex;
+                    const p = postTestPassages[currentPassageIndex];
+                    html += `
+                        <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-md border border-slate-800 space-y-3">
+                            <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                <span class="bg-amber-400 text-slate-950 text-xs font-bold px-2.5 py-0.5 rounded-full uppercase">${p.title}</span>
+                                <button onclick="speakTextById('post-passage-text-${currentPassageIndex}')" class="text-xs text-amber-300 hover:underline flex items-center gap-1"><i class="fa-solid fa-volume-high"></i> Listen Passage</button>
+                            </div>
+                            <p id="post-passage-text-${currentPassageIndex}" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                                "${p.text}"
+                            </p>
+                        </div>
+                    `;
+                }
+
+                // Question Item
+                html += `
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                        <p class="font-bold text-slate-800 text-sm sm:text-base">${qItem.q}</p>
+                        <div class="space-y-2 text-xs sm:text-sm">
+                            ${qItem.options.map((opt, oIdx) => `
+                                <label class="flex items-center space-x-3 p-3 rounded-xl hover:bg-slate-50 border border-slate-100 hover:border-amber-300 cursor-pointer transition">
+                                    <input type="radio" name="posttest-q-${qIdx}" value="${oIdx}" class="text-amber-600 focus:ring-amber-500">
+                                    <span class="text-slate-700 font-medium">${opt}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function submitPracticeExercises() {
+            const name = document.getElementById('std-name-ex').value.trim();
+            const cls = document.getElementById('std-class-ex').value;
+            const no = document.getElementById('std-no-ex').value.trim();
+
+            if (!name || !cls || !no) {
+                showCustomAlert('Please Complete Information', 'กรุณากรอกชื่อ-นามสกุล ชั้น (ม.4/1-ม.4/5) และเลขที่ให้ครบถ้วนก่อนส่งแบบฝึกหัด');
+                return;
+            }
+
+            let score = 0;
+
+            // Part A Fill in the blanks (6 items)
+            const fillAnswers = ["Schema", "Bottom-Up", "Skimming", "Interactive Model", "Scanning", "Top-Down"];
+            for (let i = 1; i <= 6; i++) {
+                const val = document.getElementById(`ex-fill-${i}`).value;
+                if (val === fillAnswers[i - 1]) score++;
+            }
+
+            // Part B Matching (6 items)
+            matchingData.forEach(m => {
+                const val = document.getElementById(`ex-match-${m.id}`).value;
+                if (val === m.answer) score++;
+            });
+
+            // Part C MCQ (8 items)
+            practiceMCQData.forEach((item, idx) => {
+                const selected = document.querySelector(`input[name="practice-mcq-${idx}"]:checked`);
+                if (selected && parseInt(selected.value) === item.answer) {
+                    score++;
+                }
+            });
+
+            // Update UI Score
+            document.getElementById('ex-score-display').innerText = score;
+            updateCertificate(name, cls, no, score, null);
+
+            showCustomAlert('Practice Completed!', `บันทึกคะแนนแบบฝึกหัดของคุณ ${name} (ชั้น ${cls} เลขที่ ${no}) เรียบร้อยแล้ว!\n\nคะแนนที่ได้: ${score} / 20 คะแนน`);
+        }
+
+        function submitPostTest() {
+            const name = document.getElementById('std-name-post').value.trim();
+            const cls = document.getElementById('std-class-post').value;
+            const no = document.getElementById('std-no-post').value.trim();
+
+            if (!name || !cls || !no) {
+                showCustomAlert('Please Complete Information', 'กรุณากรอกชื่อ-นามสกุล ชั้น (ม.4/1-ม.4/5) และเลขที่ให้ครบถ้วนก่อนส่งแบบทดสอบ');
+                return;
+            }
+
+            let score = 0;
+            postTestQuestions.forEach((qItem, qIdx) => {
+                const selected = document.querySelector(`input[name="posttest-q-${qIdx}"]:checked`);
+                if (selected && parseInt(selected.value) === qItem.answer) {
+                    score++;
+                }
+            });
+
+            // Update UI & Certificate
+            updateCertificate(name, cls, no, null, score);
+            switchTab('tab-summary');
+
+            showCustomAlert('Post-Test Completed!', `ส่งแบบทดสอบหลังเรียนเรียบร้อยแล้ว!\n\nนักเรียน: ${name} (ชั้น ${cls} เลขที่ ${no})\nคะแนนสอบที่ได้: ${score} / 20 คะแนน\n\nสามารถแคปหน้าจอใบสรุปผลคะแนนเพื่อส่งครูผู้สอนได้ทันที`);
+        }
+
+        function updateCertificate(name, cls, no, exScore, postScore) {
+            const nameEl = document.getElementById('cert-student-name');
+            const infoEl = document.getElementById('cert-student-info');
+            const dateEl = document.getElementById('cert-date');
+
+            if (name) nameEl.innerText = name;
+            if (cls && no) infoEl.innerText = `ชั้น ${cls} | เลขที่ ${no}`;
+            
+            dateEl.innerText = new Date().toLocaleDateString('th-TH', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            if (exScore !== null && exScore !== undefined) {
+                document.getElementById('cert-score-ex').innerText = `${exScore} / 20`;
+            }
+            if (postScore !== null && postScore !== undefined) {
+                document.getElementById('cert-score-post').innerText = `${postScore} / 20`;
+            }
+        }
+
+        function openTeacherAuthModal() {
+            document.getElementById('teacher-auth-modal').classList.remove('hidden');
+            document.getElementById('teacher-pin-input').value = '';
+            document.getElementById('pin-error-msg').classList.add('hidden');
+        }
+
+        function closeTeacherAuthModal() {
+            document.getElementById('teacher-auth-modal').classList.add('hidden');
+        }
+
+        function verifyTeacherPin() {
+            const pin = document.getElementById('teacher-pin-input').value.trim();
+            // SECRET PIN REQUIRED: 198020
+            if (pin === '198020') {
+                closeTeacherAuthModal();
+                switchTab('tab-teacher');
+                renderTeacherKeys();
+            } else {
+                document.getElementById('pin-error-msg').classList.remove('hidden');
+            }
+        }
+
+        function renderTeacherKeys() {
+            const pKeys = document.getElementById('teacher-practice-keys');
+            if (pKeys) {
+                pKeys.innerHTML = `
+                    <div class="bg-blue-50/60 p-3.5 rounded-xl border border-blue-200"><strong>Item 1:</strong> Schema</div>
+                    <div class="bg-blue-50/60 p-3.5 rounded-xl border border-blue-200"><strong>Item 2:</strong> Bottom-Up</div>
+                    <div class="bg-blue-50/60 p-3.5 rounded-xl border border-blue-200"><strong>Item 3:</strong> Skimming</div>
+                    <div class="bg-blue-50/60 p-3.5 rounded-xl border border-blue-200"><strong>Item 4:</strong> Interactive Model</div>
+                    <div class="bg-blue-50/60 p-3.5 rounded-xl border border-blue-200"><strong>Item 5:</strong> Scanning</div>
+                    <div class="bg-blue-50/60 p-3.5 rounded-xl border border-blue-200"><strong>Item 6:</strong> Top-Down</div>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-200"><strong>Item 7:</strong> Linguistic Schema -> Vocabulary & Grammar</div>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-200"><strong>Item 8:</strong> Content Schema -> Subject Background</div>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-200"><strong>Item 9:</strong> Formal Schema -> Genres & Text Structure</div>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-200"><strong>Item 10:</strong> Annotating -> Underlining & Margin Notes</div>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-200"><strong>Item 11:</strong> Inference -> Logical Conclusion</div>
+                    <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-200"><strong>Item 12:</strong> Author's Tone -> Emotion & Attitude</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 13:</strong> B. Screen readers browse quickly and skim.</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 14:</strong> B. Active annotation (underlining & notes).</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 15:</strong> B. Schema Theory.</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 16:</strong> B. Bottom-Up Model.</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 17:</strong> B. Previewing titles & predicting text content.</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 18:</strong> B. Objective study result on textbook retention.</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 19:</strong> B. Locating specific year or phone number.</div>
+                    <div class="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200"><strong>Item 20:</strong> B. Combining background with context clues.</div>
+                `;
+            }
+
+            const ptKeys = document.getElementById('teacher-posttest-keys');
+            if (ptKeys) {
+                ptKeys.innerHTML = postTestQuestions.map((pt, idx) => `
+                    <div class="bg-amber-50/80 p-4 rounded-2xl border border-amber-200">
+                        <div class="font-bold text-slate-800">
+                            Item ${idx + 1}: <span class="text-amber-800">${pt.options[pt.answer]}</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1">
+                            <strong>Detailed Explanation:</strong> ${pt.exp}
+                        </p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function showCustomAlert(title, message) {
+            document.getElementById('custom-alert-title').innerText = title;
+            document.getElementById('custom-alert-message').innerText = message;
+            document.getElementById('custom-alert-modal').classList.remove('hidden');
+        }
+
+        function closeCustomAlert() {
+            document.getElementById('custom-alert-modal').classList.add('hidden');
+        }
+
+        function printSection(tabId) {
+            switchTab(tabId);
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        }
+
+        // Exam Timer Logic (20 Minutes)
+        let timerSeconds = 20 * 60;
+        function startTimer() {
+            const timerEl = document.getElementById('posttest-timer');
+            setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    const mins = Math.floor(timerSeconds / 60);
+                    const secs = timerSeconds % 60;
+                    if (timerEl) {
+                        timerEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                    }
+                }
+            }, 1000);
+        }
+
+        // Window Load Initializer
+        window.onload = function() {
+            renderVocab();
+            renderMatching();
+            renderPracticeMCQ();
+            renderPostTest();
+            startTimer();
+        };
+    </script>
+</body>
+</html>
